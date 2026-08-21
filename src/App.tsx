@@ -5,6 +5,8 @@ import { DashboardView } from './components/DashboardView';
 import { NovaOSView } from './components/NovaOSView';
 import { HistoricoPlacaView } from './components/HistoricoPlacaView';
 import { OrdensServicoView } from './components/OrdensServicoView';
+import { FiscalView } from './components/FiscalView';
+import { RelatoriosView } from './components/RelatoriosView';
 import { ClientesVeiculosView } from './components/ClientesVeiculosView';
 import { CatalogoView } from './components/CatalogoView';
 import { SupabaseSqlView } from './components/SupabaseSqlView';
@@ -18,8 +20,11 @@ import {
   Users,
   Package,
   Database,
+  FileCheck,
+  FileSpreadsheet,
   X
 } from 'lucide-react';
+
 
 export default function App() {
   const [currentTab, setCurrentTab] = useState<NavTab>('dashboard');
@@ -67,6 +72,8 @@ export default function App() {
     { id: 'nova-os' as NavTab, label: 'Nova OS / Orçamento', icon: PlusCircle },
     { id: 'historico' as NavTab, label: 'Histórico por Placa', icon: History },
     { id: 'ordens' as NavTab, label: 'Ordens de Serviço', icon: FileText },
+    { id: 'fiscal' as NavTab, label: 'Notas Fiscais (SEFAZ)', icon: FileCheck },
+    { id: 'relatorios' as NavTab, label: 'Relatórios & Lucro', icon: FileSpreadsheet },
     { id: 'clientes' as NavTab, label: 'Clientes & Veículos', icon: Users },
     { id: 'catalogo' as NavTab, label: 'Peças & Serviços', icon: Package },
     { id: 'supabase-sql' as NavTab, label: 'Supabase SQL (DDL)', icon: Database },
@@ -177,8 +184,13 @@ export default function App() {
                 initialStatusFilter={statusFilterForOrdens}
                 onNavigateToNovaOS={handleNavigateToNovaOS}
                 onNavigateToHistorico={handleNavigateToHistorico}
+                onNavigateToFiscal={() => setCurrentTab('fiscal')}
               />
             )}
+
+            {currentTab === 'fiscal' && <FiscalView />}
+
+            {currentTab === 'relatorios' && <RelatoriosView />}
 
             {currentTab === 'clientes' && (
               <ClientesVeiculosView
@@ -196,3 +208,4 @@ export default function App() {
     </div>
   );
 }
+
