@@ -1,0 +1,8 @@
+{
+  "name": "AutoFix Pro - Gestão de Oficina Mecânica & SaaS PDV",
+  "description": "SaaS completo para gestão de oficina mecânica com Ordens de Serviço (OS), controle de estoque de peças, serviços de mão de obra, histórico por placa de veículo e integração com Supabase.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
